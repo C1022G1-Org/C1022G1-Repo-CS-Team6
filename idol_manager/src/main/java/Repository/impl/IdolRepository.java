@@ -1,6 +1,5 @@
 package Repository.impl;
 
-import Repository.BaseRepository;
 import Repository.IRepository;
 import model.Idol;
 
