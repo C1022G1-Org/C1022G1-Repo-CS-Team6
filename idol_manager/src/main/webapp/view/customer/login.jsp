@@ -19,28 +19,22 @@
     }
 </style>
 <body>
-<div class="container-fluid">
-    <form action="" method="get">
-        <h1 class="text-center pt-2 red">Đăng nhập</h1>
-        <div class="pt-5">
-            <label for="email">Tài khoản: </label>
-            <input type="text" name="email" id="email">
-        </div>
-        <div class="pt-3">
-            <label for="password">Mật khẩu: </label>
-            <input type="password" name="password" id="password">
-        </div>
-        <div>
-            <input class="btn btn-primary" type="submit" value="Đăng nhập">
-        </div>
-        <div>
-            <form action="/idol-manager?action=register">
-            <input class="btn btn-primary" type="submit" value="Đăng kí">
-            </form>
-        </div>
-    </form>
-
-</div>
+<form action="/login" method="post">
+    <h1 class="text-center red pt-2">Đăng nhập</h1>
+    <div class="text-center pt-5"> <label for="username">Tài khoản</label>
+        <input type="text" name="username" id="username">
+    </div>
+    <div class="text-center pt-2"> <label for="password">Mật khẩu</label>
+        <input type="password" name="password" id="password">
+    </div>
+    <div class="text-center">
+        <p class="text-danger">${mess}</p>
+    </div>
+    <div class="text-center pt-2">
+        <input class="btn btn-primary" type="submit" value="Đăng nhập">
+        <a href="/login?action=register" type="submit" class="btn btn-danger">Đăng kí</a>
+    </div>
+</form>
 <script src="/js/bootstrap.js"></script>
 </body>
 </html>
