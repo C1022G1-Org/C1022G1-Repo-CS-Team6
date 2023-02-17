@@ -28,10 +28,10 @@
                         New IDOL</a>
                 </li>
             </ul>
-            <form class="d-flex" role="search" method="post" action="view?action=find">
+            <form class="d-flex" role="name_find" method="get">
                 <div class="form-group">
-                    <label for="searchInput">Search:</label>
-                    <input type="text" class="form-control" id="searchInput" name="searchInput">
+                    <label for="name_find">Search:</label>
+                    <input type="text" class="form-control" id="name_find" name="name_find" value="${name_find}">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
@@ -61,8 +61,18 @@
             <td>${idol.country}</td>
             <td>${idol.popular}</td>
             <td>${idol.skill}</td>
-            <td><a href="view?action=edit&id=${idol.id}">Edit</a></td>
-            <td><a href="view?action=delete&id=${idol.id}">Delete</a></td>
+            <td><!-- Button trigger modal -->
+                <button type="button" onclick="infoEdit('${idol.id()}', '${idol.name()}')"
+                        class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
+                    Edit
+                </button>
+            </td>
+            <td><!-- Button trigger modal -->
+                <button type="button" onclick="infoDelete('${idol.id()}', '${idol.name()}')"
+                        class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
+                    Delete
+                </button>
+            </td>
         </tr>
     </c:forEach>
 </table>
@@ -84,10 +94,7 @@
         </div>
     </c:forEach>
 </div>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
-    Launch
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -100,7 +107,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="customer?action=delete" method="post">--%>
+                <form action="view?action=delete" method="post">--%>
                     <input hidden id="idDelete" name="idDelete">
                     <span>Bạn có chắc chắn muốn xóa
                         <span style="color: red" id="nameDelete">
@@ -121,6 +128,10 @@
 </div>
 </body>
 </html>
+<script> function infoDelete(id,name) {
+    document.getElementById("idDelete").value = id;
+    document.getElementById("nameDelete").innerText = name;
+}</script>
 aa
 <%--<!-- Modal delete-->--%>
 <%--<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">--%>

@@ -48,7 +48,7 @@ public class IdolServlet extends HttpServlet {
         String name_find = request.getParameter("name_find");
         request.setAttribute("name_find", name_find);
         if (name_find == null) name_find ="";
-        request.setAttribute("idolList", idolService.selectAllObject(name_find));
+        request.setAttribute("idols", idolService.selectAllObject(name_find));
         try {
             request.getRequestDispatcher("view/list.jsp").forward(request, response);
         } catch (ServletException | IOException e) {
