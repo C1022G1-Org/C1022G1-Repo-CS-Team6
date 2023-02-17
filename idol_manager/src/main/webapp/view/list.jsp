@@ -33,7 +33,7 @@
                     <label for="name_find">Search:</label>
                     <input type="text" class="form-control" id="name_find" name="name_find" value="${name_find}">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Search</button>
             </form>
         </div>
     </div>
@@ -61,15 +61,9 @@
             <td>${idol.country}</td>
             <td>${idol.popular}</td>
             <td>${idol.skill}</td>
-            <td><!-- Button trigger modal -->
-                <button type="button" onclick="infoEdit('${idol.id()}', '${idol.name()}')"
-                        class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
-                    Edit
-                </button>
-            </td>
-            <td><!-- Button trigger modal -->
-                <button type="button" onclick="infoDelete('${idol.id()}', '${idol.name()}')"
-                        class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
+            <td><a href="view?action=edit&id=${idol.id}">Edit</a></td>
+            <td>
+                <button type="button" onclick="infoDelete('${idol.id}','${idol.name}')" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
                     Delete
                 </button>
             </td>
@@ -128,11 +122,7 @@
 </div>
 </body>
 </html>
-<script> function infoDelete(id,name) {
-    document.getElementById("idDelete").value = id;
-    document.getElementById("nameDelete").innerText = name;
-}</script>
-aa
+
 <%--<!-- Modal delete-->--%>
 <%--<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">--%>
 <%--    <div class="modal-dialog">--%>
@@ -155,3 +145,9 @@ aa
 <%--            </div>--%>
 <%--        </div>--%>
 <%--    </div>--%>
+<script>
+function infoDelete(id,name) {
+document.getElementById("idDelete").value = id;
+document.getElementById("nameDelete").innerText = name;
+}
+</script>
