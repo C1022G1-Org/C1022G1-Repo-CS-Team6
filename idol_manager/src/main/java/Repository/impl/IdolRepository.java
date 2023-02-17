@@ -17,7 +17,7 @@ public class IdolRepository implements IRepository<Idol> {
 
     @Override
     public List<Idol> selectAllObject(String name_find) {
-        List<Idol> idolList = new ArrayList<>();
+        List<Idol> idols = new ArrayList<>();
         Connection connection = BaseRepository.getConnection();
 
         try {
@@ -34,13 +34,13 @@ public class IdolRepository implements IRepository<Idol> {
                 String popular = resultSet.getString("popular");
                 String skill = resultSet.getString("skill");
                 Idol idol = new Idol(id, name, gender, birthdate, country, popular, skill);
-                idolList.add(idol);
+                idols.add(idol);
             }
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return idolList;
+        return idols;
     }
 
     @Override
