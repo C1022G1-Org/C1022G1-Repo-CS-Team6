@@ -8,10 +8,7 @@ import java.util.List;
 
 public class IdolService implements IService {
     private final IdolRepository idolRepository = new IdolRepository();
-    @Override
-    public boolean insertObject(Object o) {
-        return false;
-    }
+
 
     @Override
     public List<Idol> selectAllObject(String name_find){
@@ -19,17 +16,9 @@ public class IdolService implements IService {
     }
 
     @Override
-    public boolean updateObject(Object o) {
-        return false;
+    public void deleteIdol(int id) {
+        idolRepository.deleteIdol(id);
     }
 
-    @Override
-    public boolean deleteObject(int id) {
-        return false;
-    }
 
-    @Override
-    public Object selectById(int id) {
-        return null;
-    }
 }

@@ -43,18 +43,18 @@ public class IdolRepository implements IRepository<Idol> {
     }
 
     @Override
-    public boolean updateObject(Idol o) {
-        return false;
+    public void deleteIdol(int id) {
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = BaseRepository.getConnection()
+                    .prepareStatement("delete from idol where id = ?");
+            preparedStatement.setInt(1,id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
-    @Override
-    public boolean deleteObject(int id) {
-        return false;
-    }
-
-    @Override
-    public Idol selectById(int id) {
-        return null;
-    }
 
 }
