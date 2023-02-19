@@ -12,6 +12,7 @@
     <title>$Title$</title>
   </head>
   <body>
-  <c:redirect url="/idol-manager"></c:redirect>
+  <h1><c:redirect url="/idol-manager"></c:redirect></h1>
+
   </body>
 </html>

@@ -1,14 +1,14 @@
 package Repository.impl;
 
 import Repository.BaseRepository;
-import Repository.IRepository;
+import Repository.IIdolRepository;
 import model.Idol;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IdolRepository implements IRepository<Idol> {
+public class IdolRepository implements IIdolRepository<Idol> {
 
     @Override
     public boolean insertObject(Idol o) {
@@ -44,18 +44,18 @@ public class IdolRepository implements IRepository<Idol> {
     }
 
     @Override
-    public boolean updateObject(Idol o) {
-        return false;
+    public void deleteIdol(int id) {
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = BaseRepository.getConnection()
+                    .prepareStatement("delete from idol where id = ?");
+            preparedStatement.setInt(1,id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
-    @Override
-    public boolean deleteObject(int id) {
-        return false;
-    }
-
-    @Override
-    public Idol selectById(int id) {
-        return null;
-    }
 
 }

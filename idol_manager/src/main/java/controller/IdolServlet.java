@@ -1,7 +1,6 @@
 package controller;
 
-import Service.impl.IdolService;
-import model.Idol;
+import Service.impl.IdolIdolService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,13 +8,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "controller.IdolServlet", value = "/idol-manager")
 public class IdolServlet extends HttpServlet {
-    private final IdolService idolService = new IdolService();
+    private final IdolIdolService idolService = new IdolIdolService();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        if (action == null) {
+            action = "";
+        }
+        switch (action) {
+            case "create":
+                break;
+            case "delete":
+                deleteIdol(request,response);
+                break;
+            default:
 
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -53,6 +63,16 @@ public class IdolServlet extends HttpServlet {
             request.getRequestDispatcher("view/list.jsp").forward(request, response);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void deleteIdol(HttpServletRequest request, HttpServletResponse response){
+        int id = Integer.parseInt(request.getParameter("deleteId"));
+        idolService.deleteIdol(id);
+        try {
+            response.sendRedirect("/idol-manager");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
