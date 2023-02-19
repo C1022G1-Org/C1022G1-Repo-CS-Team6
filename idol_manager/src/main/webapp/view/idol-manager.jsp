@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,14 +11,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/bootstrap.css">
     <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="home"> <img src="https://www.clipartmax.com/png/full/264-2643185_%C2%A0-red.png"
-                                                      height="30px" alt="IDOL"></a>
+            <a class="navbar-brand" href="home"> <img
+                    src="https://www.clipartmax.com/png/full/264-2643185_%C2%A0-red.png"
+                    height="30px" alt="IDOL"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -32,14 +35,15 @@
                         <a class="nav-link" href="#">Favourite</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="idol-manager">Idol</a>
+                        <a class="nav-link" href="#">Idol</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="customer/list-customer">Customer</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
-                    <input type ="text" class="form-control me-2" placeholder="Search" name="name_find" aria-label="Search" value="${name_find}">
+                    <input type="text" class="form-control me-2" placeholder="Search" name="name_find"
+                           aria-label="Search" value="${name_find}">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
                 <li class="nav-item hiding">

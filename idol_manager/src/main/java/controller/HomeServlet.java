@@ -23,8 +23,6 @@ public class HomeServlet extends HttpServlet {
         }
         switch (action){
             case "idol":
-
-
                 break;
             case "customer":
                 break;
