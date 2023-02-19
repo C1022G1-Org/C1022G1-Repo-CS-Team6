@@ -117,7 +117,34 @@ VALUES ('BTS Jimin', 'Male', '1995-10-13', 'South Korea', 'K-Pop Singer/Dancer',
        ('Bruno Mars', 'Male', '1985-10-08', 'United States', 'Singer/Songwriter/Producer', 'Singing, Songwriting');
 
 INSERT INTO customer_type(id, type_name)
-VALUES (1,'DIAMOND'),
-       (2,'GOLD'),
-       (3,'SLIVER');
+VALUES (1, 'DIAMOND'),
+       (2, 'GOLD'),
+       (3, 'SLIVER');
+
+INSERT INTO customer(customer_type_id, name, date_of_birth, gender, email, password)
+VALUES (1, 'John Doe', '1990-01-01', 'M', 'johndoe@example.com', 'password123'),
+       (2, 'Jane Smith', '1985-03-15', 'F', 'janesmith@example.com', 'password456'),
+       (1, 'Bob Johnson', '1975-07-10', 'M', 'bobjohnson@example.com', 'password789'),
+       (3, 'Sarah Lee', '1995-11-20', 'F', 'sarahlee@example.com', 'passwordabc'),
+       (2, 'Tom Brown', '1980-05-05', 'M', 'tombrown@example.com', 'passworddef'),
+       (1, 'Samantha Green', '1988-12-25', 'F', 'samanthagreen@example.com', 'passwordghi'),
+       (3, 'David Chen', '1992-09-01', 'M', 'davidchen@example.com', 'passwordjkl'),
+       (2, 'Emily Davis', '1987-04-12', 'F', 'emilydavis@example.com', 'passwordmno'),
+       (1, 'Mike Wilson', '1972-02-28', 'M', 'mikewilson@example.com', 'passwordpqr'),
+       (3, 'Lucy Kim', '1998-06-30', 'F', 'lucykim@example.com', 'passwordstu'),
+       (3, 'Lucy Kim', '1998-06-30', 'F', 'admin', 'admin');
+
+INSERT INTO favourite(name, number_of_likes, idol_id, customer_id)
+VALUES ('DNA', 100, 1, 1),
+       ('Kill This Love', 200, 2, 2),
+       ('Likey', 300, 3, 3),
+       ('Bad Boy', 400, 4, 4),
+       ('Love Shot', 500, 5, 5),
+       ('Kick Back', 600, 6, 6),
+       ('Starry Night', 700, 7, 7),
+       ('Violeta', 800, 8, 8),
+       ('Lullaby', 900, 9, 9),
+       ('Me Gustas Tu', 1000, 10, 10);
+
+
 

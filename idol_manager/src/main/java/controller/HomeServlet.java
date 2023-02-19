@@ -1,5 +1,7 @@
 package controller;
 
+import Service.impl.IdolService;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +11,7 @@ import java.io.IOException;
 
 @WebServlet(name = "HomeServlet" , value = "/home")
 public class HomeServlet extends HttpServlet {
+    private final IdolService idolService = new IdolService();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -29,11 +32,11 @@ public class HomeServlet extends HttpServlet {
         }
     }
     public void showHome(HttpServletRequest request, HttpServletResponse response){
+        String name_find="";
+        request.setAttribute("idols", idolService.selectAllObject(name_find));
         try {
             request.getRequestDispatcher("/view/home.jsp").forward(request,response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
     }
