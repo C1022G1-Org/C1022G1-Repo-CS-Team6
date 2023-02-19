@@ -146,5 +146,13 @@ VALUES ('DNA', 100, 1, 1),
        ('Lullaby', 900, 9, 9),
        ('Me Gustas Tu', 1000, 10, 10);
 
+INSERT INTO favourite(customer_id,idol_id) VALUES
+                                               (1,3),
+                                               (1,2),
+                                               (1,6);
+
+select * from favourite
+
+
 
 

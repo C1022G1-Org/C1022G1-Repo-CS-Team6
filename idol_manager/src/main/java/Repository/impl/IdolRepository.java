@@ -53,8 +53,5 @@ public class IdolRepository implements IRepository<Idol> {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
-
-
 }

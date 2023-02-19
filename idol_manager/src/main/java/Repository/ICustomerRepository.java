@@ -8,4 +8,6 @@ public interface ICustomerRepository {
 
     void createCustomer(Customer customer);
 
+
+    void like(int m_id, String i_id);
 }

@@ -49,6 +49,18 @@ public class CustomerRepository implements ICustomerRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+    }
+    @Override
+    public void like(int m_id ,String i_id) {
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = BaseRepository.getConnection()
+                    .prepareStatement("insert into *  (name , date_of_birth , gender , email , password) values (? , ? , ? , ? , ?)");
+            preparedStatement.setInt(1,m_id);
+            preparedStatement.setString(2,i_id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
