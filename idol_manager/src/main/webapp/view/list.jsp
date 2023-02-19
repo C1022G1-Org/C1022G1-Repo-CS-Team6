@@ -37,8 +37,8 @@
         <td>STT</td>
         <td>ID</td>
         <td>Name</td>
-        <td>Gender</td>
         <td>Date Of Birth</td>
+        <td>Gender</td>
         <td>Country</td>
         <td>Popular</td>
         <td>Skill</td>
@@ -69,7 +69,7 @@
     <c:forEach var="idol" items="${idols}">
         <div class="col-md-4">
             <div class="card mb-3">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/180604_%EB%AE%A4%EC%A7%81%EB%B1%85%ED%81%AC_%EC%B6%9C%EA%B7%BC%EA%B8%B8_%EC%88%98%EC%A7%84_%285%29_%28cropped%29.jpg/331px-180604_%EB%AE%A4%EC%A7%81%EB%B1%85%ED%81%AC_%EC%B6%9C%EA%B7%BC%EA%B8%B8_%EC%88%98%EC%A7%84_%285%29_%28cropped%29.jpg"
+                <img src="https://loremflickr.com/320/240?random=${Math.random()*100}"
                      class="card-img-top" alt="${idol.name}">
                 <div class="card-body">
                     <h5 class="card-title">${idol.name}</h5>
