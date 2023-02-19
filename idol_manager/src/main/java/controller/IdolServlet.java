@@ -34,26 +34,8 @@ public class IdolServlet extends HttpServlet {
             action = "";
         }
         switch (action) {
-//            case "add":
-//                showAddForm(request, response);
-//                break;
-//            case "edit":
-//                showEditForm(request, response);
-//                break;
-//            case "delete":
-//                showDeleteForm(request, response);
-//                break;
-//            case "search":
-//                searchUser(request, response);
-//                break;
-//            case "sort":
-//                sortUser(request, response);
-//                break;
-            case "listIdol":
-                listIdol(request, response);
-                break;
             default:
-                request.getRequestDispatcher("view/home.jsp").forward(request, response);
+                listIdol(request, response);
                 break;
         }
     }

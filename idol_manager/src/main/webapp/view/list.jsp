@@ -12,26 +12,81 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<h1>IDol List</h1>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="btn btn-primary nav-link active" aria-current="page" href="view?action=create">Create
-                        New IDOL</a>
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="home"> <img src="https://www.clipartmax.com/png/full/264-2643185_%C2%A0-red.png"
+                                                      height="30px" alt="IDOL"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Favourite</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="idol-manager">Idol</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="customer/list-customer">Customer</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input type ="text" class="form-control me-2" placeholder="Search" name="name_find" aria-label="Search" value="${name_find}">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <li class="nav-item hiding">
+                    <c:if test="${sessionScope.acc != null}">
+                <li class="nav-item hiding">
+                    <button type="button" class="btn btn-outline-primary"><a
+                            href="home">Xin chào ${sessionScope.acc.name} Logout</a></button>
                 </li>
-            </ul>
-            <form class="d-flex" role="name_find" method="get">
-                <div class="form-group">
-                    <label for="name_find">Search:</label>
-                    <input type="text" class="form-control" id="name_find" name="name_find" value="${name_find}">
-                </div>
-                <button type="submit" class="btn btn-primary">Search</button>
-            </form>
+                </c:if>
+                <c:if test="${sessionScope.acc == null}">
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-outline-primary"><a
+                                href="/view/customer/login.jsp">Login</a></button>
+
+                    </li>
+                </c:if>
+                </li>
+            </div>
         </div>
+    </nav>
+    <div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="btn btn-primary nav-link active" aria-current="page" href="view?action=create">Create
+                    New IDOL</a>
+            </li>
+        </ul>
     </div>
-</nav>
+</div>
+<%--<nav class="navbar navbar-expand-lg bg-body-tertiary">--%>
+<%--    <div class="container-fluid">--%>
+<%--        <div class="collapse navbar-collapse" id="navbarSupportedContent">--%>
+<%--            <ul class="navbar-nav me-auto mb-2 mb-lg-0">--%>
+<%--                <li class="nav-item">--%>
+<%--                    <a class="btn btn-primary nav-link active" aria-current="page" href="view?action=create">Create--%>
+<%--                        New IDOL</a>--%>
+<%--                </li>--%>
+<%--            </ul>--%>
+<%--            <form class="d-flex" role="name_find" method="get">--%>
+<%--                <div class="form-group">--%>
+<%--                    <label for="name_find">Search:</label>--%>
+<%--                    <input type="text" class="form-control" id="name_find1" name="name_find" value="${name_find}">--%>
+<%--                </div>--%>
+<%--                <button type="submit" class="btn btn-primary">Search</button>--%>
+<%--            </form>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</nav>--%>
 <table class="table table-striped">
     <tr>
         <td>STT</td>
@@ -65,24 +120,6 @@
         </tr>
     </c:forEach>
 </table>
-<div class="row mt-3">
-    <c:forEach var="idol" items="${idols}">
-        <div class="col-md-4">
-            <div class="card mb-3">
-                <img src="https://loremflickr.com/320/240?random=${Math.random()*100}"
-                     class="card-img-top" alt="${idol.name}">
-                <div class="card-body">
-                    <h5 class="card-title">${idol.name}</h5>
-                    <p class="card-text">Gender: ${idol.gender}</p>
-                    <p class="card-text">Date of Birth: ${idol.dateOfBirth}</p>
-                    <p class="card-text">Country: ${idol.country}</p>
-                    <p class="card-text">Popular: ${idol.popular}</p>
-                    <p class="card-text">Skill: ${idol.skill}</p>
-                </div>
-            </div>
-        </div>
-    </c:forEach>
-</div>
 <%--Modal--%>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
