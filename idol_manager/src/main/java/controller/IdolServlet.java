@@ -49,8 +49,12 @@ public class IdolServlet extends HttpServlet {
 //            case "sort":
 //                sortUser(request, response);
 //                break;
-            default:
+            case "listIdol":
                 listIdol(request, response);
+                break;
+            default:
+                request.getRequestDispatcher("view/home.jsp").forward(request, response);
+                break;
         }
     }
 
