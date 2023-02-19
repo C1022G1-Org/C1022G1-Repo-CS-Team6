@@ -14,5 +14,5 @@ public interface ICustomerRepository {
 
     void like(int m_id, String i_id);
 
-    List<Idol> selectAllObject(String name_find);
+    List<Customer> selectAllObject(String name_find);
 }

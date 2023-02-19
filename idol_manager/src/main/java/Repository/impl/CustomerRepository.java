@@ -82,7 +82,6 @@ public class CustomerRepository implements ICustomerRepository {
                 String birthdate = resultSet.getString("date_of_birth");
                 String email = resultSet.getString("email");
                 String password = resultSet.getString("password");
-//                String type = resultSet.getString("customer_type");
                 Customer customer = new Customer(id,name,birthdate,gender,email,password);
                 customers.add(customer);
             }
