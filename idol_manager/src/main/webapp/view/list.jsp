@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Title</title>
+    <title>Idol-Manager</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -88,7 +88,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Delete Box</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -96,11 +96,11 @@
             <form action="idol-manager?action=delete" method="post">
                 <div class="modal-body">
                     <input hidden type="text" id="idDelete" name="deleteId">
-                    <span>Xác nhận xoá</span><span id="nameDelete"></span>?
+                    <span>You may want to delete </span><span id="nameDelete"></span> ?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button type="submit" class="btn btn-primary">Yes</button>
                 </div>
             </form>
         </div>

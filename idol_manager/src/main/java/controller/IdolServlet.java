@@ -1,6 +1,6 @@
 package controller;
 
-import Service.impl.IdolIdolService;
+import Service.impl.Service;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +11,7 @@ import java.io.IOException;
 
 @WebServlet(name = "controller.IdolServlet", value = "/idol-manager")
 public class IdolServlet extends HttpServlet {
-    private final IdolIdolService idolService = new IdolIdolService();
+    private final Service idolService = new Service();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         if (action == null) {
