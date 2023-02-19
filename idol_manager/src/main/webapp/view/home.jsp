@@ -79,7 +79,5 @@
     </div>
 <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
 
-
-
 </body>
 </html>
