@@ -7,19 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "CustomerServlet")
-public class CustomerServlet extends HttpServlet {
+@WebServlet(name = "HomeServlet" , value = "/home")
+public class HomeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-        if (action == null){
-            action = "";
-        }
-        switch (action){
-            case "register":
-                break;
-            default:
-                break;
-        }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -28,15 +19,18 @@ public class CustomerServlet extends HttpServlet {
             action = "";
         }
         switch (action){
-            case "list":
+            case "idol":
+                break;
+            case "customer":
                 break;
             default:
-                showLoginForm(request,response);
+                showHome(request,response);
+
         }
     }
-    private void showLoginForm(HttpServletRequest request, HttpServletResponse response){
+    public void showHome(HttpServletRequest request, HttpServletResponse response){
         try {
-            request.getRequestDispatcher("/view/customer/login.jsp").forward(request,response);
+            request.getRequestDispatcher("/view/home.jsp").forward(request,response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
