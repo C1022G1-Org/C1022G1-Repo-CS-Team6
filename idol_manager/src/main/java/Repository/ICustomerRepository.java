@@ -1,6 +1,9 @@
 package Repository;
 
 import model.Customer;
+import model.Idol;
+
+import java.util.List;
 
 public interface ICustomerRepository {
 
@@ -10,4 +13,6 @@ public interface ICustomerRepository {
 
 
     void like(int m_id, String i_id);
+
+    List<Idol> selectAllObject(String name_find);
 }

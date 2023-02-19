@@ -44,12 +44,12 @@ public class IdolRepository implements IRepository<Idol> {
 
     @Override
     public void deleteIdol(int id) {
-        PreparedStatement preparedStatement = null;
+        CallableStatement callableStatement = null;
         try {
-            preparedStatement = BaseRepository.getConnection()
-                    .prepareStatement("delete from idol where id = ?");
-            preparedStatement.setInt(1,id);
-            preparedStatement.executeUpdate();
+            callableStatement = BaseRepository.getConnection()
+                    .prepareCall("Call delete_idol(?);");
+            callableStatement.setInt(1,id);
+            callableStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

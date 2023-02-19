@@ -2,10 +2,11 @@ package Repository.impl;
 
 import Repository.ICustomerRepository;
 import model.Customer;
+import model.Idol;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerRepository implements ICustomerRepository {
 
@@ -51,7 +52,7 @@ public class CustomerRepository implements ICustomerRepository {
         }
     }
     @Override
-    public void like(int m_id ,String i_id) {
+    public void like(int m_id, String i_id) {
         PreparedStatement preparedStatement;
         try {
             preparedStatement = BaseRepository.getConnection()
@@ -62,5 +63,33 @@ public class CustomerRepository implements ICustomerRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<Customer> selectAllObject(String name_find) {
+        List<Customer> customers = new ArrayList<>();
+        Connection connection = BaseRepository.getConnection();
+
+        try {
+            CallableStatement callableStatement = connection.prepareCall("CALL select_all_idol_by_name(?)");
+            callableStatement.setString(1,name_find);
+
+            ResultSet resultSet = callableStatement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String gender = resultSet.getString("gender");
+                String birthdate = resultSet.getString("date_of_birth");
+                String email = resultSet.getString("email");
+                String password = resultSet.getString("password");
+//                String type = resultSet.getString("customer_type");
+                Customer customer = new Customer(id,name,birthdate,gender,email,password);
+                customers.add(customer);
+            }
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return customers;
     }
 }

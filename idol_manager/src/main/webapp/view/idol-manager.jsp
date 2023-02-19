@@ -10,6 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
 <div class="container-fluid">
@@ -68,25 +69,6 @@
         </ul>
     </div>
 </div>
-<%--<nav class="navbar navbar-expand-lg bg-body-tertiary">--%>
-<%--    <div class="container-fluid">--%>
-<%--        <div class="collapse navbar-collapse" id="navbarSupportedContent">--%>
-<%--            <ul class="navbar-nav me-auto mb-2 mb-lg-0">--%>
-<%--                <li class="nav-item">--%>
-<%--                    <a class="btn btn-primary nav-link active" aria-current="page" href="view?action=create">Create--%>
-<%--                        New IDOL</a>--%>
-<%--                </li>--%>
-<%--            </ul>--%>
-<%--            <form class="d-flex" role="name_find" method="get">--%>
-<%--                <div class="form-group">--%>
-<%--                    <label for="name_find">Search:</label>--%>
-<%--                    <input type="text" class="form-control" id="name_find1" name="name_find" value="${name_find}">--%>
-<%--                </div>--%>
-<%--                <button type="submit" class="btn btn-primary">Search</button>--%>
-<%--            </form>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</nav>--%>
 <table class="table table-striped">
     <tr>
         <td>STT</td>

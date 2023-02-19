@@ -23,8 +23,6 @@ public class IdolServlet extends HttpServlet {
             case "delete":
                 deleteIdol(request,response);
                 break;
-            default:
-
         }
     }
 
@@ -46,7 +44,7 @@ public class IdolServlet extends HttpServlet {
         if (name_find == null) name_find ="";
         request.setAttribute("idols", idolService.selectAllObject(name_find));
         try {
-            request.getRequestDispatcher("view/list.jsp").forward(request, response);
+            request.getRequestDispatcher("view/idol-manager.jsp").forward(request, response);
         } catch (ServletException | IOException e) {
             e.printStackTrace();
         }

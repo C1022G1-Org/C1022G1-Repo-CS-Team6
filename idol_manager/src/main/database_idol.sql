@@ -50,6 +50,7 @@ END;
 call select_all_idol_by_name('');
 
 DELIMITER //
+
 CREATE PROCEDURE add_idols(
     name VARCHAR(50),
     gender VARCHAR(10),
@@ -88,11 +89,15 @@ END;
 DELIMITER //
 CREATE PROCEDURE delete_idol(id INT)
 BEGIN
+    SET FOREIGN_KEY_CHECKS = 0;
     DELETE
     FROM idol i
     WHERE i.id = id;
+    SET FOREIGN_KEY_CHECKS = 1;
 END;
 // DELIMITER ;
+
+call delete_idol(1);
 
 
 # ---------INSERT DATA IN TABLE IDOL---------
@@ -146,12 +151,23 @@ VALUES ('DNA', 100, 1, 1),
        ('Lullaby', 900, 9, 9),
        ('Me Gustas Tu', 1000, 10, 10);
 
-INSERT INTO favourite(customer_id,idol_id) VALUES
-                                               (1,3),
-                                               (1,2),
-                                               (1,6);
+INSERT INTO favourite(customer_id, idol_id)
+VALUES (1, 3),
+       (1, 2),
+       (1, 6);
 
-select * from favourite
+select *
+from favourite ;
+
+DELIMITER //
+CREATE PROCEDURE select_all_customer_by_name(IN name_find VARCHAR(10))
+BEGIN
+    SELECT * FROM customer WHERE name LIKE CONCAT('%', name_find, '%') ;
+END;
+// DELIMITER ;
+call select_all_idol_by_name('');
+
+DELIMITER //
 
 
 
