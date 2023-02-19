@@ -6,6 +6,5 @@
   </head>
   <body>
 <c:redirect url="/idol-manager"></c:redirect>
-
-  </body>
+</body>
 </html>

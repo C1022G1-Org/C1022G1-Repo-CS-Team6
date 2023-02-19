@@ -7,19 +7,25 @@ public class Customer {
     private String gender;
     private String email;
     private String password;
-    private String customerType;
 
     public Customer() {
     }
 
-    public Customer(int id, String name, String dateOfBirth, String gender, String email, String password, String customerType) {
+    public Customer(String name, String dateOfBirth, String gender, String email, String password) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.email = email;
+        this.password = password;
+    }
+
+    public Customer(int id, String name, String dateOfBirth, String gender, String email, String password) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.email = email;
         this.password = password;
-        this.customerType = customerType;
     }
 
     public int getId() {
@@ -70,11 +76,4 @@ public class Customer {
         this.password = password;
     }
 
-    public String getCustomerType() {
-        return customerType;
-    }
-
-    public void setCustomerType(String customerType) {
-        this.customerType = customerType;
-    }
 }
