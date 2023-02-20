@@ -44,7 +44,7 @@
                     <c:if test="${sessionScope.acc != null}">
                 <li class="nav-item hiding">
                     <button type="button" class="btn btn-outline-primary"><a
-                            href="home">Xin chào ${sessionScope.acc.name} Logout</a></button>
+                            href="/login?action=logout">Xin chào ${sessionScope.acc.name} Logout</a></button>
                 </li>
                 </c:if>
                 <c:if test="${sessionScope.acc == null}">

@@ -167,7 +167,6 @@ END;
 // DELIMITER ;
 call select_all_idol_by_name('');
 
-DELIMITER //
 
 
 
