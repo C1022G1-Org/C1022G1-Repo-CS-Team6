@@ -1,29 +1,18 @@
 package Service.impl;
 
-import Repository.impl.CustomerRepository;
 import Service.ICustomerService;
 import model.Customer;
 
 public class CustomerService implements ICustomerService {
-    private final CustomerRepository customerRepository = new CustomerRepository();
+    private static ICustomerService iCustomerRepository = new CustomerService();
 
     @Override
     public Customer loginCustomer(String email, String password) {
-        return customerRepository.loginCustomer(email, password);
+        return iCustomerRepository.loginCustomer(email,password);
     }
 
     @Override
     public void createCustomer(Customer customer) {
-        customerRepository.createCustomer(customer);
-    }
-
-    @Override
-    public Object selectAllObject(String name_find) {
-        return this.customerRepository.selectAllObject(name_find);
-    }
-
-    @Override
-    public void deleteCustomer(int id) {
-        customerRepository.deleteCustomer(id);
+        iCustomerRepository.createCustomer(customer);
     }
 }

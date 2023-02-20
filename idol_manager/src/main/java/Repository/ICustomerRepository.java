@@ -2,18 +2,10 @@ package Repository;
 
 import model.Customer;
 
-import java.util.List;
-
 public interface ICustomerRepository {
 
     Customer loginCustomer(String email , String password);
 
     void createCustomer(Customer customer);
 
-
-    void like(int m_id, String i_id);
-
-    List<Customer> selectAllObject(String name_find);
-
-    void deleteCustomer(int id);
 }
