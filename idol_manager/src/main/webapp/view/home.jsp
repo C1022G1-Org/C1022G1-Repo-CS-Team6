@@ -37,18 +37,18 @@
                         <a class="nav-link" href="idol-manager">Idol</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="customer/list-customer">Customer</a>
+                        <a class="nav-link" href="customer/customer-manager">Customer</a>
                     </li>
                 </ul>
-                <li class="nav-item hiding">
+                <li class="nav-item hiding" style="list-style: none;">
                     <c:if test="${sessionScope.acc != null}">
-                <li class="nav-item hiding">
+                <li class="nav-item hiding" style="list-style: none;">
                     <button type="button" class="btn btn-outline-primary"><a
                             href="home">Xin chào ${sessionScope.acc.name} Logout</a></button>
                 </li>
                 </c:if>
                 <c:if test="${sessionScope.acc == null}">
-                    <li class="nav-item">
+                    <li class="nav-item" style="list-style: none;">
                         <button type="button" class="btn btn-outline-primary"><a
                                 href="/view/customer/login.jsp">Login</a></button>
 

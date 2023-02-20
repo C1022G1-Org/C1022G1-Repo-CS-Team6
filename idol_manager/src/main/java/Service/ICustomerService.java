@@ -8,4 +8,7 @@ public interface ICustomerService {
 
     void createCustomer(Customer customer);
 
+    Object selectAllObject(String name_find);
+
+    void deleteCustomer(int id);
 }
