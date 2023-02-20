@@ -3,8 +3,6 @@ package Repository;
 import model.Customer;
 import model.Idol;
 
-import java.util.List;
-
 public interface ICustomerRepository {
 
     Customer loginCustomer(String email , String password);
