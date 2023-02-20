@@ -38,25 +38,23 @@
                         <a class="nav-link" href="#">Idol</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="view/customer/customer-manager">Customer</a>
+                        <a class="nav-link" href="customer/list-customer">Customer</a>
                     </li>
                 </ul>
-                <div class="ml-auto">
-                    <form class="d-flex" role="search">
-                        <input type="text" class="form-control me-2" placeholder="Search" name="name_find"
-                               aria-label="Search" value="${name_find}">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-                </div>
-                <li class="nav-item" style="list-style: none;">
+                <form class="d-flex ml-auto" role="search">
+                    <input type="text" class="form-control me-2 ml-auto" placeholder="Search" name="name_find"
+                           aria-label="Search" value="${name_find}">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <li class="nav-item hiding" style="list-style: none">
                     <c:if test="${sessionScope.acc != null}">
-                <li class="nav-item" style="list-style: none;">
+                <li class="nav-item hiding" style="list-style: none">
                     <button type="button" class="btn btn-outline-primary"><a
                             href="home">Xin chào ${sessionScope.acc.name} Logout</a></button>
                 </li>
                 </c:if>
                 <c:if test="${sessionScope.acc == null}">
-                    <li class="nav-item" style="list-style: none;">
+                    <li class="nav-item" style="list-style: none">
                         <button type="button" class="btn btn-outline-primary"><a
                                 href="/view/customer/login.jsp">Login</a></button>
 
@@ -77,7 +75,7 @@
 </div>
 <div class="container-fluid">
 <table class="table table-striped">
-    <tr id="head-table">
+    <tr>
         <th>STT</th>
         <th>ID</th>
         <th>Name</th>
@@ -133,6 +131,31 @@
         </div>
     </div>
 </div>
+<div class="container-fluid">
+
+    <footer class="text-center text-lg-start" style="background-color: #db6930;">
+        <div class="container d-flex justify-content-center py-5">
+            <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+                <i class="fab fa-facebook-f"></i>
+            </button>
+            <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+                <i class="fab fa-youtube"></i>
+            </button>
+            <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+                <i class="fab fa-instagram"></i>
+            </button>
+            <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+                <i class="fab fa-twitter"></i>
+            </button>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023- Copyright:
+            <a class="text-white" href="#">NHÓM 6 PRO TEAM</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
 <script>
     function infoDelete(id, name) {
         document.getElementById("idDelete").value = id;

@@ -37,10 +37,9 @@ public class CustomerServlet extends HttpServlet {
     private void showLoginForm(HttpServletRequest request, HttpServletResponse response){
         try {
             request.getRequestDispatcher("/view/customer/login.jsp").forward(request,response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
+
     }
 }

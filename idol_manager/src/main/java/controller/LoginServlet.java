@@ -40,6 +40,9 @@ public class LoginServlet extends HttpServlet {
             case "register":
                 createCustomer(request,response);
                 break;
+            case "logout":
+                logout(request,response);
+                break;
             default:
         }
     }
@@ -88,7 +91,16 @@ public class LoginServlet extends HttpServlet {
         Customer newCustomer = new Customer(name,dateOfBirth,gender,email,newPassword);
         iCustomerService.createCustomer(newCustomer);
         try {
-            response.sendRedirect("/view/login.jsp");
+            response.sendRedirect("/view/customer/login.jsp");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void logout(HttpServletRequest request, HttpServletResponse response){
+        HttpSession httpSession = request.getSession();
+        httpSession.removeAttribute("acc");
+        try {
+            response.sendRedirect("/view/home.jsp");
         } catch (IOException e) {
             e.printStackTrace();
         }

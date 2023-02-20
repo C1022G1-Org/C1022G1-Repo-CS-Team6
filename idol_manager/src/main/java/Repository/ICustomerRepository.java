@@ -1,6 +1,7 @@
 package Repository;
 
 import model.Customer;
+import model.Idol;
 
 public interface ICustomerRepository {
 
@@ -8,4 +9,8 @@ public interface ICustomerRepository {
 
     void createCustomer(Customer customer);
 
+
+    void like(int m_id, String i_id);
+
+    List<Customer> selectAllObject(String name_find);
 }

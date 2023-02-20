@@ -13,6 +13,7 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public void createCustomer(Customer customer) {
-        iCustomerRepository.createCustomer(customer);
+        customerRepository.createCustomer(customer);
+
     }
 }
