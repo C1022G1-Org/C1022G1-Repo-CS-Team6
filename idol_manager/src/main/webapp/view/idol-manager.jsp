@@ -41,20 +41,20 @@
                         <a class="nav-link" href="customer/list-customer">Customer</a>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input type="text" class="form-control me-2" placeholder="Search" name="name_find"
+                <form class="d-flex ml-auto" role="search">
+                    <input type="text" class="form-control me-2 ml-auto" placeholder="Search" name="name_find"
                            aria-label="Search" value="${name_find}">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-                <li class="nav-item hiding">
+                <li class="nav-item hiding" style="list-style: none">
                     <c:if test="${sessionScope.acc != null}">
-                <li class="nav-item hiding">
+                <li class="nav-item hiding" style="list-style: none">
                     <button type="button" class="btn btn-outline-primary"><a
                             href="home">Xin chào ${sessionScope.acc.name} Logout</a></button>
                 </li>
                 </c:if>
                 <c:if test="${sessionScope.acc == null}">
-                    <li class="nav-item">
+                    <li class="nav-item" style="list-style: none">
                         <button type="button" class="btn btn-outline-primary"><a
                                 href="/view/customer/login.jsp">Login</a></button>
 
@@ -73,18 +73,19 @@
         </ul>
     </div>
 </div>
+<div class="container-fluid">
 <table class="table table-striped">
     <tr>
-        <td>STT</td>
-        <td>ID</td>
-        <td>Name</td>
-        <td>Date Of Birth</td>
-        <td>Gender</td>
-        <td>Country</td>
-        <td>Popular</td>
-        <td>Skill</td>
-        <td>Edit</td>
-        <td>Delete</td>
+        <th>STT</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Date Of Birth</th>
+        <th>Gender</th>
+        <th>Country</th>
+        <th>Popular</th>
+        <th>Skill</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
     <c:forEach items='${requestScope["idols"]}' var="idol" varStatus="stt">
         <tr>
@@ -106,6 +107,7 @@
         </tr>
     </c:forEach>
 </table>
+</div>
 <%--Modal--%>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -129,6 +131,31 @@
         </div>
     </div>
 </div>
+<div class="container-fluid">
+
+    <footer class="text-center text-lg-start" style="background-color: #db6930;">
+        <div class="container d-flex justify-content-center py-5">
+            <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+                <i class="fab fa-facebook-f"></i>
+            </button>
+            <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+                <i class="fab fa-youtube"></i>
+            </button>
+            <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+                <i class="fab fa-instagram"></i>
+            </button>
+            <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+                <i class="fab fa-twitter"></i>
+            </button>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023- Copyright:
+            <a class="text-white" href="#">NHÓM 6 PRO TEAM</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
 <script>
     function infoDelete(id, name) {
         document.getElementById("idDelete").value = id;
