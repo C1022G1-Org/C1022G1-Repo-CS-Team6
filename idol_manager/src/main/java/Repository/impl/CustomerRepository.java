@@ -3,9 +3,9 @@ package Repository.impl;
 import Repository.ICustomerRepository;
 import model.Customer;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class CustomerRepository implements ICustomerRepository {
 
@@ -46,61 +46,9 @@ public class CustomerRepository implements ICustomerRepository {
             preparedStatement.setString(4,customer.getEmail());
             preparedStatement.setString(5,customer.getPassword());
             preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
-    }
-    @Override
-    public void like(int m_id, String i_id) {
-        PreparedStatement preparedStatement;
-        try {
-            preparedStatement = BaseRepository.getConnection()
-                    .prepareStatement("insert into *  (name , date_of_birth , gender , email , password) values (? , ? , ? , ? , ?)");
-            preparedStatement.setInt(1,m_id);
-            preparedStatement.setString(2,i_id);
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
-    @Override
-    public List<Customer> selectAllObject(String name_find) {
-        List<Customer> customers = new ArrayList<>();
-        Connection connection = BaseRepository.getConnection();
-
-        try {
-            CallableStatement callableStatement = connection.prepareCall("CALL select_all_customer_by_name(?)");
-            callableStatement.setString(1,name_find);
-
-            ResultSet resultSet = callableStatement.executeQuery();
-            while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String name = resultSet.getString("name");
-                String gender = resultSet.getString("gender");
-                String birthdate = resultSet.getString("date_of_birth");
-                String email = resultSet.getString("email");
-                String password = resultSet.getString("password");
-                Customer customer = new Customer(id,name,birthdate,gender,email,password);
-                customers.add(customer);
-            }
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return customers;
-    }
-
-    @Override
-    public void deleteCustomer(int id) {
-        CallableStatement callableStatement = null;
-        try {
-            callableStatement = BaseRepository.getConnection()
-                    .prepareCall("Call delete_customer(?);");
-            callableStatement.setInt(1,id);
-            callableStatement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

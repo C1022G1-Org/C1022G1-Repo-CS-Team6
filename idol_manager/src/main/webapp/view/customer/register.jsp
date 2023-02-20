@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Register Customer</title>
+    <title>Title</title>
 </head>
 <link rel="stylesheet" href="/css/bootstrap.css">
 <style>

@@ -5,6 +5,6 @@
     <title></title>
 </head>
 <body>
-<c:redirect url="/home"></c:redirect>
+<c:redirect url="/idol-manager"></c:redirect>
 </body>
 </html>
