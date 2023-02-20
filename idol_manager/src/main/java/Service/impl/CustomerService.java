@@ -16,4 +16,11 @@ public class CustomerService implements ICustomerService {
     public void createCustomer(Customer customer) {
         customerRepository.createCustomer(customer);
     }
+
+    @Override
+    public Customer checkCustomer(String email) {
+        return customerRepository.checkCustomer(email);
+    }
+
+
 }

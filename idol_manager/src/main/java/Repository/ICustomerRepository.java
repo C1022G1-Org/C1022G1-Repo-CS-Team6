@@ -15,4 +15,6 @@ public interface ICustomerRepository {
     void like(int m_id, String i_id);
 
     List<Customer> selectAllObject(String name_find);
+
+    Customer checkCustomer(String email);
 }

@@ -8,4 +8,6 @@ public interface ICustomerService {
 
     void createCustomer(Customer customer);
 
+    Customer checkCustomer(String email);
+
 }
