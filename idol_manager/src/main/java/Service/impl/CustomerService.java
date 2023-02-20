@@ -16,4 +16,14 @@ public class CustomerService implements ICustomerService {
     public void createCustomer(Customer customer) {
         customerRepository.createCustomer(customer);
     }
+
+    @Override
+    public Object selectAllObject(String name_find) {
+        return this.customerRepository.selectAllObject(name_find);
+    }
+
+    @Override
+    public void deleteCustomer(int id) {
+        customerRepository.deleteCustomer(id);
+    }
 }

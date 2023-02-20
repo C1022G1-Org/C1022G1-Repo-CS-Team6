@@ -2,7 +2,6 @@ package Repository.impl;
 
 import Repository.ICustomerRepository;
 import model.Customer;
-import model.Idol;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -71,7 +70,7 @@ public class CustomerRepository implements ICustomerRepository {
         Connection connection = BaseRepository.getConnection();
 
         try {
-            CallableStatement callableStatement = connection.prepareCall("CALL select_all_idol_by_name(?)");
+            CallableStatement callableStatement = connection.prepareCall("CALL select_all_customer_by_name(?)");
             callableStatement.setString(1,name_find);
 
             ResultSet resultSet = callableStatement.executeQuery();
@@ -90,5 +89,18 @@ public class CustomerRepository implements ICustomerRepository {
             e.printStackTrace();
         }
         return customers;
+    }
+
+    @Override
+    public void deleteCustomer(int id) {
+        CallableStatement callableStatement = null;
+        try {
+            callableStatement = BaseRepository.getConnection()
+                    .prepareCall("Call delete_customer(?);");
+            callableStatement.setInt(1,id);
+            callableStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

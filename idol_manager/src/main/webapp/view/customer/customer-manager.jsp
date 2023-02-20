@@ -3,7 +3,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Idol-Manager</title>
+    <title>Customer-Manager</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,7 +20,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="home"> <img
                     src="https://www.clipartmax.com/png/full/264-2643185_%C2%A0-red.png"
-                    height="30px" alt="IDOL"></a>
+                    height="30px" alt="cus"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@
                         <a class="nav-link" href="#">Favourite</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Idol</a>
+                        <a class="nav-link" href="#">cus</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="view/customer/customer-manager">Customer</a>
@@ -70,38 +70,35 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
                 <a class="btn btn-primary nav-link active" aria-current="page" href="view?action=create">Create
-                    New IDOL</a>
+                    New CUSTOMER</a>
             </li>
         </ul>
     </div>
 </div>
-<div class="container-fluid">
 <table class="table table-striped">
-    <tr id="head-table">
-        <th>STT</th>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Date Of Birth</th>
-        <th>Gender</th>
-        <th>Country</th>
-        <th>Popular</th>
-        <th>Skill</th>
-        <th>Edit</th>
-        <th>Delete</th>
+    <tr>
+        <td>STT</td>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Date Of Birth</td>
+        <td>Gender</td>
+        <td>Email</td>
+        <td>Password</td>
+        <td>Edit</td>
+        <td>Delete</td>
     </tr>
-    <c:forEach items='${requestScope["idols"]}' var="idol" varStatus="stt">
+    <c:forEach items='${requestScope["customers"]}' var="cus" varStatus="stt">
         <tr>
             <td>${stt.count}</td>
-            <td>${idol.id}</td>
-            <td>${idol.name}</td>
-            <td>${idol.gender}</td>
-            <td>${idol.dateOfBirth}</td>
-            <td>${idol.country}</td>
-            <td>${idol.popular}</td>
-            <td>${idol.skill}</td>
-            <td><a href="view?action=edit&id=${idol.id}">Edit</a></td>
+            <td>${cus.id}</td>
+            <td>${cus.name}</td>
+            <td>${cus.gender}</td>
+            <td>${cus.dateOfBirth}</td>
+            <td>${cus.email}</td>
+            <td>${cus.password}</td>
+            <td><a href="view?action=edit&id=${cus.id}">Edit</a></td>
             <td>
-                <button type="button" onclick="infoDelete('${idol.id}','${idol.name}')" class="btn btn-danger"
+                <button type="button" onclick="infoDelete('${cus.id}','${cus.name}')" class="btn btn-danger"
                         data-toggle="modal" data-target="#exampleModal">
                     Delete
                 </button>
@@ -109,7 +106,6 @@
         </tr>
     </c:forEach>
 </table>
-</div>
 <%--Modal--%>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -120,7 +116,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="idol-manager?action=delete" method="post">
+            <form action="customer-manager?action=delete" method="post">
                 <div class="modal-body">
                     <input hidden type="text" id="idDelete" name="deleteId">
                     <span>You may want to delete </span><span id="nameDelete"></span> ?

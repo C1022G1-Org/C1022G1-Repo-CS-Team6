@@ -14,6 +14,19 @@
     color: #6a1a21;
 }
 
-::marker {
+.bg-body-tertiary {
+    background-color: #1B0C1A;
+}
+
+.li* {
+
     color: transparent;
 }
+
+#head-table + .td{
+    text-align: -moz-center;
+    font-size: larger;
+    font-weight: bold;
+    font-family: Futura-Bold;
+}
+
