@@ -27,30 +27,25 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-3" >
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Favourite</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#">Idol</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="customer/list-customer">Customer</a>
-                    </li>
                 </ul>
-                <form class="d-flex ml-auto" role="search">
+                <form class="d-flex ml-auto p-3" role="search">
                     <input type="text" class="form-control me-2 ml-auto" placeholder="Search" name="name_find"
                            aria-label="Search" value="${name_find}">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                   <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
                 <li class="nav-item hiding" style="list-style: none">
                     <c:if test="${sessionScope.acc != null}">
                 <li class="nav-item hiding" style="list-style: none">
+                    <span class="pt-3">Xin chào ${sessionScope.acc.name}</span>
                     <button type="button" class="btn btn-outline-primary"><a
-                            href="home">Xin chào ${sessionScope.acc.name} Logout</a></button>
+                            href="/login?action=logout">Logout</a></button>
                 </li>
                 </c:if>
                 <c:if test="${sessionScope.acc == null}">
@@ -82,8 +77,8 @@
         <th>Date Of Birth</th>
         <th>Gender</th>
         <th>Country</th>
-        <th>Popular</th>
         <th>Skill</th>
+        <th>Image</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
@@ -95,9 +90,9 @@
             <td>${idol.gender}</td>
             <td>${idol.dateOfBirth}</td>
             <td>${idol.country}</td>
-            <td>${idol.popular}</td>
             <td>${idol.skill}</td>
-            <td><a href="view?action=edit&id=${idol.id}">Edit</a></td>
+            <td><img style="height: 150px" src="${idol.img}" alt=""></td>
+            <td><a href="view?action=edit&id=${idol.id}" type="button" class="btn btn-primary">Edit</a></td>
             <td>
                 <button type="button" onclick="infoDelete('${idol.id}','${idol.name}')" class="btn btn-danger"
                         data-toggle="modal" data-target="#exampleModal">

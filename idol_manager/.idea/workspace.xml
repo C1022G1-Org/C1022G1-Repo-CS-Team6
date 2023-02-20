@@ -12,21 +12,20 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Gradle___org_example___idol_manager_1_0_SNAPSHOT_war.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Gradle___org_example___idol_manager_1_0_SNAPSHOT_war__exploded_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Repository/impl/IdolRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Repository/impl/IdolRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/CustomerServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/FavouriteServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Idol.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/Idol.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/idol_manager-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/idol_manager-1.0-SNAPSHOT.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/database_idol.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database_idol.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Repository/ICustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Repository/ICustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Repository/impl/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Repository/impl/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/ICustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/ICustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/impl/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/impl/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/database_idol.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Repository/impl/IdolRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Repository/impl/IdolRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CustomerServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/FavouriteServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Idol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Idol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/view/customer/hehe.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/view/customer/list-customer.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/customer/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/customer/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/customer/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/customer/register.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/view/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/home.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/view/idol-manager.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/idol-manager.jsp" afterDir="false" />
     </list>
@@ -226,7 +225,7 @@
       <workItem from="1676643695075" duration="15465000" />
       <workItem from="1676786402852" duration="23828000" />
       <workItem from="1676856805723" duration="2486000" />
-      <workItem from="1676864974379" duration="8896000" />
+      <workItem from="1676864974379" duration="15464000" />
     </task>
     <servers />
   </component>

@@ -30,9 +30,9 @@ public class IdolRepository implements IRepository<Idol> {
                 String gender = resultSet.getString("gender");
                 String birthdate = resultSet.getString("date_of_birth");
                 String country = resultSet.getString("country");
-                String popular = resultSet.getString("popular");
                 String skill = resultSet.getString("skill");
-                Idol idol = new Idol(id, name, gender, birthdate, country, popular, skill);
+                String img = resultSet.getString("img");
+                Idol idol = new Idol(id, name, gender, birthdate, country, skill , img);
                 idols.add(idol);
             }
             connection.close();
