@@ -3,6 +3,7 @@ USE idol_manager;
 
 CREATE TABLE idol
 (
+
     id            INT AUTO_INCREMENT PRIMARY KEY,
     name          VARCHAR(50),
     gender        VARCHAR(10),

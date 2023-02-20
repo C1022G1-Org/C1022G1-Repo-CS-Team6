@@ -18,8 +18,15 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/libs/idol_manager-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/idol_manager-1.0-SNAPSHOT.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/database_idol.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/database_idol.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Repository/ICustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Repository/ICustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Repository/impl/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Repository/impl/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Service/ICustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/ICustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Service/impl/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/impl/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/view/customer/hehe.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/view/customer/list-customer.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/customer/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/customer/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view/customer/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/customer/register.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/view/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/home.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/view/idol-manager.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view/idol-manager.jsp" afterDir="false" />
     </list>
@@ -219,7 +226,7 @@
       <workItem from="1676643695075" duration="15465000" />
       <workItem from="1676786402852" duration="23828000" />
       <workItem from="1676856805723" duration="2486000" />
-      <workItem from="1676864974379" duration="2214000" />
+      <workItem from="1676864974379" duration="8896000" />
     </task>
     <servers />
   </component>

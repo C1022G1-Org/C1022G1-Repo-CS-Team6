@@ -88,12 +88,25 @@ public class LoginServlet extends HttpServlet {
         String gender = request.getParameter("gender");
         String email = request.getParameter("email");
         String newPassword = request.getParameter("newPassword");
-        Customer newCustomer = new Customer(name,dateOfBirth,gender,email,newPassword);
-        iCustomerService.createCustomer(newCustomer);
-        try {
-            response.sendRedirect("/view/customer/login.jsp");
-        } catch (IOException e) {
-            e.printStackTrace();
+        Customer newCustomer = iCustomerService.checkCustomer(email);
+        if (newCustomer == null){
+            iCustomerService.createCustomer(new Customer(name,dateOfBirth,gender,email,newPassword));
+            try {
+                response.sendRedirect("/view/customer/login.jsp");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            try {
+                request.setAttribute("alo","Email already exists");
+                try {
+                    request.getRequestDispatcher("/view/customer/register.jsp").forward(request,response);
+                } catch (ServletException e) {
+                    throw new RuntimeException(e);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
     private void logout(HttpServletRequest request, HttpServletResponse response){
