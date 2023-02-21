@@ -3,6 +3,7 @@ USE idol_manager;
 
 CREATE TABLE idol
 (
+
     id            INT AUTO_INCREMENT PRIMARY KEY,
     name          VARCHAR(50),
     gender        VARCHAR(10),
@@ -165,19 +166,7 @@ BEGIN
     SELECT * FROM customer WHERE name LIKE CONCAT('%', name_find, '%') ;
 END;
 // DELIMITER ;
-
-call select_all_customer_by_name('');
-
-DELIMITER //
-CREATE PROCEDURE delete_customer(id INT)
-BEGIN
-    SET FOREIGN_KEY_CHECKS = 0;
-    DELETE
-    FROM customer i
-    WHERE i.id = id;
-    SET FOREIGN_KEY_CHECKS = 1;
-END;
-// DELIMITER ;
+call select_all_idol_by_name('');
 
 
 

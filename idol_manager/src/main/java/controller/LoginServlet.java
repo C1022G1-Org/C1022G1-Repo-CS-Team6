@@ -40,6 +40,9 @@ public class LoginServlet extends HttpServlet {
             case "register":
                 createCustomer(request,response);
                 break;
+            case "logout":
+                logout(request,response);
+                break;
             default:
         }
     }
@@ -52,7 +55,9 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("mess","Sai tài khoản hoặc mật khẩu");
             try {
                 request.getRequestDispatcher("/view/customer/login.jsp").forward(request, response);
-            } catch (ServletException | IOException e) {
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }else {
@@ -60,7 +65,9 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("acc",customer);
                 request.getRequestDispatcher("/view/home.jsp").forward(request,response);
-            } catch (ServletException | IOException e) {
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
@@ -69,7 +76,9 @@ public class LoginServlet extends HttpServlet {
     private void createCustomer(HttpServletRequest request, HttpServletResponse response){
         try {
             request.getRequestDispatcher("/view/customer/register.jsp").forward(request,response);
-        } catch (ServletException | IOException e) {
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -79,10 +88,32 @@ public class LoginServlet extends HttpServlet {
         String gender = request.getParameter("gender");
         String email = request.getParameter("email");
         String newPassword = request.getParameter("newPassword");
-        Customer newCustomer = new Customer(name,dateOfBirth,gender,email,newPassword);
-        iCustomerService.createCustomer(newCustomer);
+        Customer newCustomer = iCustomerService.checkCustomer(email);
+        if (newCustomer == null){
+            iCustomerService.createCustomer(new Customer(name,dateOfBirth,gender,email,newPassword));
+            try {
+                response.sendRedirect("/view/customer/login.jsp");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            try {
+                request.setAttribute("alo","Email already exists");
+                try {
+                    request.getRequestDispatcher("/view/customer/register.jsp").forward(request,response);
+                } catch (ServletException e) {
+                    throw new RuntimeException(e);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+    private void logout(HttpServletRequest request, HttpServletResponse response){
+        HttpSession httpSession = request.getSession();
+        httpSession.removeAttribute("acc");
         try {
-            response.sendRedirect("/view/login.jsp");
+            response.sendRedirect("/view/home.jsp");
         } catch (IOException e) {
             e.printStackTrace();
         }

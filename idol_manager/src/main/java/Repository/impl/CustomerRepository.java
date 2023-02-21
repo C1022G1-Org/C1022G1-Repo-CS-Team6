@@ -2,10 +2,11 @@ package Repository.impl;
 
 import Repository.ICustomerRepository;
 import model.Customer;
+import model.Idol;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class CustomerRepository implements ICustomerRepository {
 
@@ -70,7 +71,7 @@ public class CustomerRepository implements ICustomerRepository {
         Connection connection = BaseRepository.getConnection();
 
         try {
-            CallableStatement callableStatement = connection.prepareCall("CALL select_all_customer_by_name(?)");
+            CallableStatement callableStatement = connection.prepareCall("CALL select_all_idol_by_name(?)");
             callableStatement.setString(1,name_find);
 
             ResultSet resultSet = callableStatement.executeQuery();
@@ -90,17 +91,27 @@ public class CustomerRepository implements ICustomerRepository {
         }
         return customers;
     }
-
     @Override
-    public void deleteCustomer(int id) {
-        CallableStatement callableStatement = null;
+    public Customer checkCustomer(String email) {
+        PreparedStatement preparedStatement = null;
         try {
-            callableStatement = BaseRepository.getConnection()
-                    .prepareCall("Call delete_customer(?);");
-            callableStatement.setInt(1,id);
-            callableStatement.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            preparedStatement = BaseRepository.getConnection()
+                    .prepareStatement("select * from customer where email = ?");
+            preparedStatement.setString(1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                return new Customer(resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+                        resultSet.getString(6)
+                );
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
+
+        return null;
     }
 }
