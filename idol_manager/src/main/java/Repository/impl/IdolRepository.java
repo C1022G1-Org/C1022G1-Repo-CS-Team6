@@ -30,9 +30,9 @@ public class IdolRepository implements IRepository<Idol> {
                 String gender = resultSet.getString("gender");
                 String birthdate = resultSet.getString("date_of_birth");
                 String country = resultSet.getString("country");
-                String popular = resultSet.getString("popular");
                 String skill = resultSet.getString("skill");
-                Idol idol = new Idol(id, name, gender, birthdate, country, popular, skill);
+                String img = resultSet.getString("img");
+                Idol idol = new Idol(id, name, gender, birthdate, country, skill , img);
                 idols.add(idol);
             }
             connection.close();
@@ -44,17 +44,14 @@ public class IdolRepository implements IRepository<Idol> {
 
     @Override
     public void deleteIdol(int id) {
-        PreparedStatement preparedStatement = null;
+        CallableStatement callableStatement = null;
         try {
-            preparedStatement = BaseRepository.getConnection()
-                    .prepareStatement("delete from idol where id = ?");
-            preparedStatement.setInt(1,id);
-            preparedStatement.executeUpdate();
+            callableStatement = BaseRepository.getConnection()
+                    .prepareCall("Call delete_idol(?);");
+            callableStatement.setInt(1,id);
+            callableStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
-
-
 }

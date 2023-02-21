@@ -6,20 +6,21 @@ public class Idol {
     private String dateOfBirth;
     private String gender;
     private String country;
-    private String popular;
     private String skill;
+
+    private String img;
 
     public Idol() {
     }
 
-    public Idol(int id, String name, String dateOfBirth, String gender, String country, String popular, String skill) {
+    public Idol(int id, String name, String dateOfBirth, String gender, String country, String skill , String img) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.country = country;
-        this.popular = popular;
         this.skill = skill;
+        this.img = img;
     }
 
     public int getId() {
@@ -62,20 +63,20 @@ public class Idol {
         this.country = country;
     }
 
-    public String getPopular() {
-        return popular;
-    }
-
-    public void setPopular(String popular) {
-        this.popular = popular;
-    }
-
     public String getSkill() {
         return skill;
     }
 
     public void setSkill(String skill) {
         this.skill = skill;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 }
 

@@ -55,9 +55,7 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("mess","Sai tài khoản hoặc mật khẩu");
             try {
                 request.getRequestDispatcher("/view/customer/login.jsp").forward(request, response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
+            } catch (ServletException | IOException e) {
                 e.printStackTrace();
             }
         }else {
@@ -65,9 +63,7 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("acc",customer);
                 request.getRequestDispatcher("/view/home.jsp").forward(request,response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
+            } catch (ServletException | IOException e) {
                 e.printStackTrace();
             }
         }
@@ -76,9 +72,7 @@ public class LoginServlet extends HttpServlet {
     private void createCustomer(HttpServletRequest request, HttpServletResponse response){
         try {
             request.getRequestDispatcher("/view/customer/register.jsp").forward(request,response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
     }

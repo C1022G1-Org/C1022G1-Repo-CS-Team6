@@ -4,9 +4,9 @@ import Repository.ICustomerRepository;
 import model.Customer;
 import model.Idol;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerRepository implements ICustomerRepository {
 
