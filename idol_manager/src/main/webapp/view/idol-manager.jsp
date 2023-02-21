@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/home.css">
+
 </head>
 <body>
 <div class="container-fluid">
@@ -27,7 +27,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-3" >
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-3">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="home">Home</a>
                     </li>
@@ -38,7 +38,7 @@
                 <form class="d-flex ml-auto p-3" role="search">
                     <input type="text" class="form-control me-2 ml-auto" placeholder="Search" name="name_find"
                            aria-label="Search" value="${name_find}">
-                   <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
                 <li class="nav-item hiding" style="list-style: none">
                     <c:if test="${sessionScope.acc != null}">
@@ -62,47 +62,67 @@
     <div>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="btn btn-primary nav-link active" aria-current="page" href="view?action=create">Create
+                <a class="btn btn-primary nav-link active" aria-current="page" href="idol-manager?action=create">Create
                     New IDOL</a>
             </li>
         </ul>
     </div>
 </div>
 <div class="container-fluid">
-<table class="table table-striped">
-    <tr>
-        <th>STT</th>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Date Of Birth</th>
-        <th>Gender</th>
-        <th>Country</th>
-        <th>Skill</th>
-        <th>Image</th>
-        <th>Edit</th>
-        <th>Delete</th>
-    </tr>
-    <c:forEach items='${requestScope["idols"]}' var="idol" varStatus="stt">
+    <table class="table table-striped">
         <tr>
-            <td>${stt.count}</td>
-            <td>${idol.id}</td>
-            <td>${idol.name}</td>
-            <td>${idol.gender}</td>
-            <td>${idol.dateOfBirth}</td>
-            <td>${idol.country}</td>
-            <td>${idol.skill}</td>
-            <td><img style="height: 150px" src="${idol.img}" alt=""></td>
-            <td><a href="view?action=edit&id=${idol.id}" type="button" class="btn btn-primary">Edit</a></td>
-            <td>
-                <button type="button" onclick="infoDelete('${idol.id}','${idol.name}')" class="btn btn-danger"
-                        data-toggle="modal" data-target="#exampleModal">
-                    Delete
-                </button>
-            </td>
+            <th>STT</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date Of Birth</th>
+            <th>Gender</th>
+            <th>Country</th>
+            <th>Skill</th>
+            <th>Image</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
-    </c:forEach>
-</table>
+        <c:forEach items='${requestScope["idols"]}' var="idol" varStatus="stt">
+            <tr>
+                <td>${stt.count}</td>
+                <td>${idol.id}</td>
+                <td>${idol.name}</td>
+                <td>${idol.gender}</td>
+                <td>${idol.dateOfBirth}</td>
+                <td>${idol.country}</td>
+                <td>${idol.skill}</td>
+                <td><img style="height: 150px" src="${idol.img}" alt="..."></td>
+                <td><a href="idol-manager?action=update&id=${idol.id}" type="button"
+                       class="btn btn-primary btn-sm">Edit</a></td>
+                <td>
+                    <button type="button" onclick="infoDelete('${idol.id}','${idol.name}')"
+                            class="btn btn-danger btn-sm"
+                            data-toggle="modal" data-target="#exampleModal">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+    <div class="row mt-3 p-2">
+        <c:forEach var="idol" items="${idols}">
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <img src="${idol.img}"
+                         class="card-img-top" alt="${idol.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${idol.name}</h5>
+                        <p class="card-text">Gender: ${idol.gender}</p>
+                        <p class="card-text">Date of Birth: ${idol.dateOfBirth}</p>
+                        <p class="card-text">Country: ${idol.country}</p>
+                        <p class="card-text">Skill: ${idol.skill}</p>
+                    </div>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
 </div>
+
 <%--Modal--%>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -116,7 +136,8 @@
             <form action="idol-manager?action=delete" method="post">
                 <div class="modal-body">
                     <input hidden type="text" id="idDelete" name="deleteId">
-                    <span>You may want to delete </span><span id="nameDelete"></span> ?
+                    <span>You may want to delete </span><span style="color: red" class="fw-bolder"
+                                                              id="nameDelete"></span> ?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
@@ -126,31 +147,18 @@
         </div>
     </div>
 </div>
-<div class="container-fluid">
-
-    <footer class="text-center text-lg-start" style="background-color: #db6930;">
-        <div class="container d-flex justify-content-center py-5">
-            <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
-                <i class="fab fa-facebook-f"></i>
-            </button>
-            <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
-                <i class="fab fa-youtube"></i>
-            </button>
-            <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
-                <i class="fab fa-instagram"></i>
-            </button>
-            <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
-                <i class="fab fa-twitter"></i>
-            </button>
-        </div>
-
-        <!-- Copyright -->
-        <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2023- Copyright:
-            <a class="text-white" href="#">NHÓM 6 PRO TEAM</a>
-        </div>
-        <!-- Copyright -->
+<div class="footer-basic">
+    <footer>
+        <div class="social"><a href="#"><i class="icon"></i></a><a href="#"><i
+                class="icon"></i></a><a href="#"><i class="icon"></i></a><a
+                href="#"><i class="icon"></i></a></div>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="home">Home</a></li>
+            <li class="list-inline-item"><a href="idol-manager">Idol Manager</a></li>
+        </ul>
+        <p class="copyright">Group 6 C1022G1</p>
     </footer>
+</div>
 <script>
     function infoDelete(id, name) {
         document.getElementById("idDelete").value = id;
@@ -169,4 +177,70 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 </body>
+<style>
+    /* Make the image fully responsive */
+    .carousel-inner img {
+        width: 100%;
+        height: 100%;
+    }
+    .footer-basic {
+        padding:40px 0;
+        background-color:#ffffff;
+        color:#4b4c4d;
+    }
+
+    .footer-basic ul {
+        padding:0;
+        list-style:none;
+        text-align:center;
+        font-size:18px;
+        line-height:1.6;
+        margin-bottom:0;
+    }
+
+    .footer-basic li {
+        padding:0 10px;
+    }
+
+    .footer-basic ul a {
+        color:inherit;
+        text-decoration:none;
+        opacity:0.8;
+    }
+
+    .footer-basic ul a:hover {
+        opacity:1;
+    }
+
+    .footer-basic .social {
+        text-align:center;
+        padding-bottom:25px;
+    }
+
+    .footer-basic .social > a {
+        font-size:24px;
+        width:40px;
+        height:40px;
+        line-height:40px;
+        display:inline-block;
+        text-align:center;
+        border-radius:50%;
+        border:1px solid #ccc;
+        margin:0 8px;
+        color:inherit;
+        opacity:0.75;
+    }
+
+    .footer-basic .social > a:hover {
+        opacity:0.9;
+    }
+
+    .footer-basic .copyright {
+        margin-top:15px;
+        text-align:center;
+        font-size:13px;
+        color:#aaa;
+        margin-bottom:0;
+    }
+</style>
 </html>

@@ -23,6 +23,15 @@ public class Idol {
         this.img = img;
     }
 
+    public Idol( String name, String dateOfBirth, String gender, String country, String skill , String img) {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+        this.gender = gender;
+        this.country = country;
+        this.skill = skill;
+        this.img = img;
+    }
+
     public int getId() {
         return id;
     }

@@ -53,7 +53,7 @@ CREATE PROCEDURE add_idols(
     skill VARCHAR(50)
 )
 BEGIN
-    INSERT INTO idol(name, gender, date_of_birth, country, popular, skill)
+    INSERT INTO idol(name, gender, date_of_birth, country, img, skill)
     VALUES (name, gender, date_of_birth, country, popular, skill);
 END;
 // DELIMITER ;
@@ -73,7 +73,7 @@ BEGIN
         i.gender        = gender,
         i.date_of_birth = date_of_birth,
         i.country       = country,
-        i.popular       = popular,
+        i.img       = popular,
         i.skill         = skill
     WHERE i.id = id;
 END;
