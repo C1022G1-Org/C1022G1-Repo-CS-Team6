@@ -85,11 +85,16 @@ public class LoginServlet extends HttpServlet {
         Customer newCustomer = iCustomerService.checkCustomer(email);
         if (newCustomer == null){
             iCustomerService.createCustomer(new Customer(name,dateOfBirth,gender,email,newPassword));
-            try {
-                response.sendRedirect("/view/customer/login.jsp");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+                try {
+                    try {
+                        request.setAttribute("c",new Customer(name,dateOfBirth,gender,email,newPassword));
+                        request.getRequestDispatcher("/view/customer/login.jsp").forward(request,response);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                } catch (ServletException e) {
+                    throw new RuntimeException(e);
+                }
         }else {
             try {
                 request.setAttribute("alo","Email already exists");

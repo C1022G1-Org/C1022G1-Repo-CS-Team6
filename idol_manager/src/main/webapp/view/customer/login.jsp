@@ -268,14 +268,13 @@
 
         <!-- Icon -->
         <div class="fadeIn first">
-            <!-- <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" /> -->
             <h2 class="my-5">Sign In</h2>
         </div>
 
         <!-- Login Form -->
         <form>
-            <input type="email" id="username" class="fadeIn second zero-raduis" name="username" placeholder="email">
-            <input type="text" id="password" class="fadeIn third zero-raduis" name="password" placeholder="password">
+            <input type="email" id="username" class="fadeIn second zero-raduis" name="username" placeholder="Email" value="${c.email}">
+            <input type="text" id="password" class="fadeIn third zero-raduis" name="password" placeholder="Password" value="${c.password}">
             <div class="text-center">
                 <p class="text-danger">${mess}</p>
             </div>

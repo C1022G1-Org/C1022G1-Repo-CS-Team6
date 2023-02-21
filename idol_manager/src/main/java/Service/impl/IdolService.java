@@ -4,6 +4,7 @@ import Repository.impl.IdolRepository;
 import Service.IService;
 import model.Idol;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class IdolService implements IService {
@@ -20,5 +21,18 @@ public class IdolService implements IService {
         idolRepository.deleteIdol(id);
     }
 
+    @Override
+    public void update(Idol idol) throws SQLException {
+        idolRepository.update(idol);
+    }
 
+    @Override
+    public Idol findbyID(int id) {
+        return idolRepository.findbyID(id);
+    }
+
+    @Override
+    public void create(Idol idol) {
+        idolRepository.create(idol);
+    }
 }
